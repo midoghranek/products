@@ -1,0 +1,20 @@
+{
+  "_id": "14c80f51-9b68-4b0f-9981-874e650cc41b",
+  "name": "Red Shoes ",
+  "weight": "33",
+  "translations": {
+    "ar": {
+      "name": "جزمة حمراء"
+    }
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+  "category": {
+    "_id": "0cfb5624-2b7f-4349-8a8d-87b0f9869825",
+    "name": "Shooes",
+    "translations": {
+      "ar": {
+        "name": "الأحذية"
+      }
+    }
+  }
+}

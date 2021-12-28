@@ -2,7 +2,7 @@
   "_id": "fbbbda0f-0c34-4f57-a883-0e6ab16ebba7",
   "name": "Shoes 2",
   "weight": 3,
-  "cateogry": {
+  "category": {
     "_id": "0cfb5624-2b7f-4349-8a8d-87b0f9869825",
     "name": "Shooes",
     "translations": {

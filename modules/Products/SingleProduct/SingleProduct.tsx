@@ -2,9 +2,11 @@ import { useTranslate } from "@hooks";
 import { Delete, Edit } from "@mui/icons-material";
 import { Typography, Box, IconButton } from "@mui/material";
 import { useDeleteProductMutation, useGetProductsQuery } from "@services";
+import { openEditProduct } from "@store";
 import { Languages, Product } from "@types";
 import Image from "next/image";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 type SingleProductProps = {
   readonly product: Product;
@@ -14,6 +16,12 @@ type SingleProductProps = {
 const SingleProduct: React.FC<SingleProductProps> = ({ product, lang }) => {
   const { message } = useTranslate();
   const [deleteProduct] = useDeleteProductMutation();
+
+  const dispatch = useDispatch();
+
+  const handleEditProduct = () => {
+    dispatch(openEditProduct(product));
+  };
 
   return (
     <Box
@@ -61,7 +69,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product, lang }) => {
           flexDirection: "column",
         }}
       >
-        <IconButton>
+        <IconButton onClick={handleEditProduct}>
           <Edit />
         </IconButton>
         <IconButton onClick={() => deleteProduct(product?._id)}>

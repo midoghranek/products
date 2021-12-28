@@ -12,48 +12,88 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { useCreateProductMutation, useGetCategoriesQuery } from "@services";
+import {
+  useCreateProductMutation,
+  useGetCategoriesQuery,
+  useUpdateProductMutation,
+} from "@services";
+import { productFormSelector } from "@store";
 import { Category, Product } from "@types";
 import { productFormSchema } from "@validators";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 type ProductFormProps = {
-  readonly open: boolean;
   readonly onClose: () => void;
 };
 
-const ProductForm: React.FC<ProductFormProps> = ({ open, onClose }) => {
+const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
   const router = useRouter();
+  const { message } = useTranslate();
+
+  const { open, edit } = useSelector(productFormSelector);
 
   const {
     control,
     handleSubmit,
     formState: { errors },
     setValue,
+    reset,
   } = useForm<Product>({
     resolver: yupResolver(productFormSchema),
   });
 
   const [createProduct, { isLoading }] = useCreateProductMutation();
+  const [updateProduct, { isLoading: isUpdateLoading }] =
+    useUpdateProductMutation();
 
   const onSubmit: SubmitHandler<Product> = (data) => {
-    createProduct(data);
+    if (edit) {
+      updateProduct({
+        ...data,
+        _id: edit._id,
+      }).then(() => {
+        onClose();
+      });
+    } else {
+      createProduct(data).then(() => {
+        onClose();
+      });
+    }
   };
 
   const { data: categories } = useGetCategoriesQuery();
 
-  const { message } = useTranslate();
+  useEffect(() => {
+    if (open && !edit) {
+      reset();
+    }
+  }, [open, edit, reset]);
+
+  useEffect(() => {
+    if (edit) {
+      setValue("name", edit.name);
+      setValue("category", edit.category);
+      setValue("thumbnail", edit.thumbnail);
+      setValue("weight", edit.weight);
+      setValue("translations.ar.name", edit.translations.ar.name);
+    }
+  }, [edit, setValue]);
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{message("NEW_PRODUCT")}</DialogTitle>
+      <DialogTitle>
+        {message(edit ? "EDIT_PRODUCT" : "NEW_PRODUCT")}
+      </DialogTitle>
       <DialogContent>
-        {isLoading && (
-          <CenterBox>
-            <CircularProgress />
-          </CenterBox>
-        )}
+        {isLoading ||
+          (isUpdateLoading && (
+            <CenterBox>
+              <CircularProgress />
+            </CenterBox>
+          ))}
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{
@@ -79,45 +119,6 @@ const ProductForm: React.FC<ProductFormProps> = ({ open, onClose }) => {
           />
           <Box mb={3} />
           <Controller
-            name="weight"
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                type="text"
-                variant="outlined"
-                label={message("PRODUCT_WEIGHT")}
-                error={!!errors?.weight}
-                helperText={message(errors?.weight?.message as LOCALES) ?? ""}
-                fullWidth
-              />
-            )}
-          />
-          <Box mb={3} />
-          <Autocomplete
-            options={categories ?? []}
-            getOptionLabel={(option: Category) =>
-              router?.locale === "ar"
-                ? option.translations.ar.name
-                : option.name
-            }
-            fullWidth
-            onChange={(_, value) => setValue("category", value as Category)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                type="text"
-                variant="outlined"
-                label={message("CATEGORY")}
-                error={!!errors?.category?.name}
-                helperText={
-                  message(errors?.category?.name?.message as LOCALES) ?? ""
-                }
-              />
-            )}
-          />
-          <Box mb={3} />
-          <Controller
             name="translations.ar.name"
             control={control}
             render={({ field }) => (
@@ -135,6 +136,50 @@ const ProductForm: React.FC<ProductFormProps> = ({ open, onClose }) => {
               />
             )}
           />
+          <Box mb={3} />
+          <Controller
+            name="weight"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                type="text"
+                variant="outlined"
+                label={message("PRODUCT_WEIGHT")}
+                error={!!errors?.weight}
+                helperText={message(errors?.weight?.message as LOCALES) ?? ""}
+                fullWidth
+              />
+            )}
+          />
+          <Box mb={3} />
+          <Autocomplete
+            defaultValue={edit ? edit.category : undefined}
+            options={categories ?? []}
+            getOptionLabel={(option: Category) =>
+              router?.locale === "ar"
+                ? option.translations.ar.name
+                : option.name
+            }
+            fullWidth
+            onChange={(_, value) => {
+              setValue("category", value as Category);
+              console.log(value, edit);
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                type="text"
+                variant="outlined"
+                label={message("CATEGORY")}
+                error={!!errors?.category?.name}
+                helperText={
+                  message(errors?.category?.name?.message as LOCALES) ?? ""
+                }
+              />
+            )}
+          />
+
           <Box mb={3} />
           <Controller
             name="thumbnail"
@@ -156,7 +201,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ open, onClose }) => {
           <Box mb={3} />
           <Box display="flex" justifyContent="flex-end">
             <Button variant="contained" type="submit">
-              {message("ADD_PRODUCT")}
+              {message(edit ? "EDIT_PRODUCT" : "ADD_PRODUCT")}
             </Button>
           </Box>
         </form>

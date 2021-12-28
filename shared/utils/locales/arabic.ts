@@ -12,9 +12,10 @@ export const arabic = {
   LOGOUT: "تسجيل خروج",
 
   PRODUCTS_TITLE: "المنتجات",
-  PRODUCT_NAME: "اسم المنتج",
+  PRODUCT_NAME: "اسم المنتج بالغة الأنجليزية",
   PRODUCT_WEIGHT: "الوزن",
   NEW_PRODUCT: "منتج جديد",
+  EDIT_PRODUCT: "تعديل المنتج",
   CATEGORY: "وسم",
   ADD_PRODUCT: "إضافة منتج",
   THUMBNAIL: "الصورة المصغرة",

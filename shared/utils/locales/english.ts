@@ -17,6 +17,7 @@ export const english = {
   PRODUCT_NAME: "Product Name",
   PRODUCT_WEIGHT: "Weight",
   NEW_PRODUCT: "New Product",
+  EDIT_PRODUCT: "Edit Product",
   CATEGORY: "Category",
   ADD_PRODUCT: "Add Product",
   THUMBNAIL: "Thumbnail",

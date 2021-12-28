@@ -38,6 +38,8 @@ export const useAppSelector: TypedUseSelectorHook<GlobalStore> = useSelector;
 
 // export actions
 export { setUser, logoutUser } from "./user";
+export { openEditProduct, openProductForm, closeProductForm } from "./product";
 
 // export selectors
 export { userSelector } from "./user";
+export { productFormSelector } from "./product";

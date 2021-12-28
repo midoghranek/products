@@ -4,8 +4,16 @@ export type UserIntialState = {
   user: User | null;
 };
 
+export type ProductIntialState = {
+  productForm: {
+    open: boolean;
+    edit: Product | null;
+  };
+};
+
 export type GlobalStore = {
   "user/store": UserIntialState;
+  "product/store": ProductIntialState;
 };
 
 export type Product = {
