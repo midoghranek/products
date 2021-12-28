@@ -1,5 +1,23 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@modules": ["modules/index.ts"],
+      "@components": ["shared/components/index.ts"],
+      "@containers": ["shared/containers/index.ts"],
+      "@templates": ["shared/templates/index.ts"],
+      "@hooks": ["shared/hooks/index.ts"],
+      "@services": ["shared/services/index.ts"],
+      "@store": ["shared/store/index.tsx"],
+      "@validators": ["shared/utils/validators/index.ts"],
+      "@svgs": ["shared/utils/svgs/index.ts"],
+      "@helpers": ["shared/utils/helpers/index.ts"],
+      "@configs": ["shared/utils/configs/index.ts"],
+      "@constants": ["shared/utils/constants/index.ts"],
+      "@locales": ["shared/utils/locales/index.ts"],
+      "@theme": ["shared/utils/theme/index.ts"],
+      "@types": ["shared/utils/types/index.ts"]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

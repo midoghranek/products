@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "0cfb5624-2b7f-4349-8a8d-87b0f9869825",
+    "name": "Shooes",
+    "translations": {
+      "ar": {
+        "name": "الأحذية"
+      }
+    }
+  },
+  {
+    "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0f4",
+    "name": "Pants",
+    "translations": {
+      "ar": {
+        "name": "السراويل"
+      }
+    }
+  },
+  {
+    "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0d5",
+    "name": "Headsets",
+    "translations": {
+      "ar": {
+        "name": "سماعات"
+      }
+    }
+  }
+]

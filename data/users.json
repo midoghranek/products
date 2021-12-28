@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "1001",
+    "name": "Khaled Hussien",
+    "username": "khaled",
+    "avatar": "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=766&q=80",
+    "role": "manager"
+  },
+  {
+    "_id": "1002",
+    "name": "Ahmed Gamal",
+    "username": "ahmed",
+    "avatar": "https://images.unsplash.com/photo-1456327102063-fb5054efe647?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    "role": "editor"
+  }
+]
