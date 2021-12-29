@@ -1,6 +1,6 @@
 import { NextApiHandler } from "next";
-import users from "../../../data/users.json";
-import passwords from "../../../data/passwords.json";
+import users from "public/data/users.json";
+import passwords from "public/data/passwords.json";
 
 type Passwords = {
   [key: string]: string;
