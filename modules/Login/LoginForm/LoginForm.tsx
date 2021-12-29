@@ -5,7 +5,6 @@ import {
   CircularProgress,
   IconButton,
   InputAdornment,
-  Paper,
   TextField,
   Typography,
 } from "@mui/material";
@@ -14,12 +13,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginFormSchema } from "@validators";
 import { LoginFormInputs, User } from "@types";
 import { useLoginMutation } from "@services";
-import { CenterBox } from "@components";
 import { useEffect } from "react";
 import { setCookies } from "cookies-next";
 import { useRouter } from "next/router";
-import { setUser, useAppDispatch } from "@store";
+import { setUser } from "@store";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { CenterBox } from "@components";
+import { useDispatch } from "react-redux";
 
 type LoginError = {
   data: {
@@ -30,6 +30,8 @@ type LoginError = {
 const LoginForm = () => {
   const router = useRouter();
   const { message } = useTranslate();
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
@@ -46,8 +48,6 @@ const LoginForm = () => {
     loginUser(data);
   };
 
-  const dispatch = useAppDispatch();
-
   useEffect(() => {
     if (isSuccess) {
       router.push("/");
@@ -59,91 +59,71 @@ const LoginForm = () => {
   }, [data, dispatch, isSuccess, router]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <Paper
-        sx={{
-          padding: 5,
-          width: "100%",
-          maxWidth: "500px",
-          mt: "200px",
-          position: "relative",
-        }}
-      >
-        {isLoading && (
-          <CenterBox>
-            <CircularProgress />
-          </CenterBox>
-        )}
-        <Typography variant="h3">{message("LOGIN_TITLE")}</Typography>
-        <Box mt={5} />
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            name="username"
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                type="text"
-                variant="outlined"
-                label={message("USERNAME")}
-                error={!!errors?.username}
-                helperText={message(errors?.username?.message) ?? ""}
-                fullWidth
-              />
-            )}
-          />
-
-          <Box mt={3} />
-          <Controller
-            name="password"
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                type={showPassword ? "text" : "password"}
-                variant="outlined"
-                label={message("PASSWORD")}
-                error={!!errors?.password}
-                helperText={message(errors?.password?.message) ?? ""}
-                fullWidth
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={toggleShowPassword}
-                        onMouseDown={toggleShowPassword}
-                      >
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            )}
-          />
-          <Box mt={3} />
-          {isError && (
-            <>
-              <Typography variant="body2" color="error">
-                {message((error as LoginError).data.message)}
-              </Typography>
-              <Box mt={3} />
-            </>
+    <>
+      {isLoading && (
+        <CenterBox>
+          <CircularProgress />
+        </CenterBox>
+      )}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="username"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              type="text"
+              variant="outlined"
+              label={message("USERNAME")}
+              error={!!errors?.username}
+              helperText={message(errors?.username?.message) ?? ""}
+              fullWidth
+            />
           )}
-          <Button variant="contained" type="submit">
-            {message("LOGIN_TITLE")}
-          </Button>
-        </form>
-      </Paper>
-    </Box>
+        />
+        <Box mt={3} />
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              type={showPassword ? "text" : "password"}
+              variant="outlined"
+              label={message("PASSWORD")}
+              error={!!errors?.password}
+              helperText={message(errors?.password?.message) ?? ""}
+              fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={toggleShowPassword}
+                      onMouseDown={toggleShowPassword}
+                    >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
+        />
+        <Box mt={3} />
+        {isError && (
+          <>
+            <Typography variant="body2" color="error">
+              {message((error as LoginError).data.message)}
+            </Typography>
+            <Box mt={3} />
+          </>
+        )}
+        <Button variant="contained" type="submit">
+          {message("LOGIN_TITLE")}
+        </Button>
+      </form>
+    </>
   );
 };
 

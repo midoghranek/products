@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { GlobalStore, Product, ProductIntialState, User } from "@types";
+import { GlobalStore, Product, ProductIntialState } from "@types";
 
 const initialState: ProductIntialState = {
   productForm: {

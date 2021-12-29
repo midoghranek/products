@@ -1,4 +1,4 @@
-export { default as CenterBox } from "./CenterBox";
+export { default as CenterBox } from "./CenterBox/CenterBox";
 export { default as ConfirmDialog } from "./ConfirmDialog/ConfirmDialog";
 
 // stores

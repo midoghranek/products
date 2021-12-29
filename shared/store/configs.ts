@@ -1,6 +1,5 @@
 import { confirmDialogSlice } from "@components";
-import { loginService } from "@services";
-import { categoriesService, productsService } from "@services";
+import { categoriesService, productsService, loginService } from "@services";
 import { productSlice } from "./product";
 import { userSlice } from "./user";
 

@@ -30,12 +30,6 @@ export const RTKProvider: React.FC = ({ children }) => (
   <Provider store={store}>{children}</Provider>
 );
 
-// export typed redux hooks
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector: TypedUseSelectorHook<GlobalStore> = useSelector;
-
 // export actions
 export { setUser, logoutUser } from "./user";
 export { openEditProduct, openProductForm, closeProductForm } from "./product";

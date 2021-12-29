@@ -21,7 +21,7 @@ import { productFormSelector } from "@store";
 import { Category, Product } from "@types";
 import { productFormSchema } from "@validators";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 
