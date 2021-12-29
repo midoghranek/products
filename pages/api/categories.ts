@@ -1,8 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Category } from "@types";
 import fs from "fs";
-import path from "path";
-import getConfig from "next/config";
 import { v4 as uuidv4 } from "uuid";
 import { PUBLIC_DATA_DIR } from "@constants";
 
@@ -17,13 +15,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { serverRuntimeConfig } = getConfig();
-
-  const categoriesFile = path.join(
-    serverRuntimeConfig.PROJECT_ROOT,
-    PUBLIC_DATA_DIR,
-    "categories.json"
-  );
+  const categoriesFile = `${PUBLIC_DATA_DIR}/categories.json`;
 
   const categories = JSON.parse(
     fs.readFileSync(categoriesFile, "utf8")

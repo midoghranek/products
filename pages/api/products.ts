@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 import fs from "fs";
-import getConfig from "next/config";
 import { Product } from "@types";
 import { PUBLIC_DATA_DIR } from "@constants";
 
@@ -11,13 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { serverRuntimeConfig } = getConfig();
-
-  const productsDir = path.join(
-    serverRuntimeConfig.PROJECT_ROOT,
-    PUBLIC_DATA_DIR,
-    "products"
-  );
+  const productsDir = `${PUBLIC_DATA_DIR}/products`;
 
   if (req.method === "GET") {
     const filenames = fs.readdirSync(productsDir);
