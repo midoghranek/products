@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import getConfig from "next/config";
 import { v4 as uuidv4 } from "uuid";
+import { PUBLIC_DATA_DIR } from "@constants";
 
 type Data =
   | Category[]
@@ -20,7 +21,7 @@ export default async function handler(
 
   const categoriesFile = path.join(
     serverRuntimeConfig.PROJECT_ROOT,
-    "./public/data",
+    PUBLIC_DATA_DIR,
     "categories.json"
   );
 

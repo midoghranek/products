@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import getConfig from "next/config";
 import { Product } from "@types";
+import { PUBLIC_DATA_DIR } from "@constants";
 
 type Data =
   | Product
@@ -19,7 +20,7 @@ export default async function handler(
 
   const productsDir = path.join(
     serverRuntimeConfig.PROJECT_ROOT,
-    "./public/data",
+    PUBLIC_DATA_DIR,
     "products"
   );
 
