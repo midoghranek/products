@@ -20,7 +20,7 @@ export default async function handler(
 
   const categoriesFile = path.join(
     serverRuntimeConfig.PROJECT_ROOT,
-    "./public/data",
+    "./data",
     "categories.json"
   );
 

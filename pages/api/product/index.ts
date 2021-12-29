@@ -18,7 +18,7 @@ export default async function handler(
 
   const productsDir = path.join(
     serverRuntimeConfig.PROJECT_ROOT,
-    "./public/data",
+    "./data",
     "products"
   );
 

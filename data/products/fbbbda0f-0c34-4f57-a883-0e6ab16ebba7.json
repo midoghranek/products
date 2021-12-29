@@ -1,0 +1,20 @@
+{
+  "_id": "fbbbda0f-0c34-4f57-a883-0e6ab16ebba7",
+  "name": "Shoes 2",
+  "weight": "3",
+  "category": {
+    "_id": "c4df3a09-0696-469a-9b32-d6d97c071e0d",
+    "name": "Glasses",
+    "translations": {
+      "ar": {
+        "name": "نظارات"
+      }
+    }
+  },
+  "thumbnail": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+  "translations": {
+    "ar": {
+      "name": "حذاء 2"
+    }
+  }
+}
