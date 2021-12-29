@@ -17,6 +17,10 @@ export const GlobalStyles = () => {
         html[lang="ar"] body {
           font-family: "Tajawal", "Merriweather";
         }
+        a {
+          text-decoration: none;
+          color: #38c;
+        }
       `}
     />
   );

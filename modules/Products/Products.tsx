@@ -13,9 +13,9 @@ import SingleProduct from "./SingleProduct/SingleProduct";
 import { Languages } from "@types";
 import ProductForm from "./ProductForm/ProductForm";
 import { useTranslate } from "@hooks";
-import { Add } from "@mui/icons-material";
+import { Add, Edit } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { closeProductForm, openProductForm } from "@store";
+import { closeProductForm, openProductForm, userSelector } from "@store";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -30,6 +30,8 @@ const Products = () => {
   const handleCloseProductForm = () => {
     dispatch(closeProductForm());
   };
+
+  const user = useSelector(userSelector);
 
   if (isError)
     return <Alert severity="error">{message("SOMETHING_WENT_WRONG")}</Alert>;
@@ -54,13 +56,29 @@ const Products = () => {
         }}
       >
         <Typography variant="h5">{message("PRODUCTS_TITLE")}</Typography>
-        <Button
-          onClick={handleOpenProductForm}
-          endIcon={<Add />}
-          variant="outlined"
-        >
-          {message("NEW_PRODUCT")}
-        </Button>
+
+        <Box display="flex">
+          {user?.role === "manager" && (
+            <>
+              <Button
+                onClick={() => router.push("/categories")}
+                endIcon={<Edit />}
+                variant="outlined"
+              >
+                {message("MANAGE_CATEGORIES")}
+              </Button>
+              <Box ml="10px" />
+            </>
+          )}
+
+          <Button
+            onClick={handleOpenProductForm}
+            endIcon={<Add />}
+            variant="outlined"
+          >
+            {message("NEW_PRODUCT")}
+          </Button>
+        </Box>
       </Box>
       <ProductForm onClose={handleCloseProductForm} />
       <Grid container spacing={3} mt={2}>

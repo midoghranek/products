@@ -52,6 +52,7 @@ const LoginForm = () => {
     if (isSuccess) {
       router.push("/");
       setCookies("session", true);
+      setCookies("user_role", data?.user?.role);
       localStorage.setItem("user", JSON.stringify(data?.user));
       dispatch(setUser(data?.user as User));
     }

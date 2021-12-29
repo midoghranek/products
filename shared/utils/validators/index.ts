@@ -26,3 +26,20 @@ export const productFormSchema = yup.object().shape({
     .url("THUMBNAIL_URL")
     .matches(/images.unsplash.com/g, "IMAGES_MESSAGE"),
 });
+
+export const categoryFormSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required("CATEGORY_NAME_REQUIRED")
+    .min(4, "CATEGORY_NAME_MIN_LENGTH")
+    .max(20, "CATEGORY_NAME_MAX_LENGTH"),
+  translations: yup.object().shape({
+    ar: yup.object().shape({
+      name: yup
+        .string()
+        .required("ARABIC_NAME_REQUIRED")
+        .min(4, "CATEGORY_NAME_MIN_LENGTH")
+        .max(20, "CATEGORY_NAME_MAX_LENGTH"),
+    }),
+  }),
+});

@@ -27,6 +27,18 @@ export const arabic = {
   THUMBNAIL_REQUIRED: "الصورة المصغرة مطلوبة",
   THUMBNAIL_URL: "الصورة المصغرة يجب ان تكون رابط ويب صالح",
 
+  // categories
+  MANAGE_CATEGORIES: "إدارة الأقسام",
+  CATEGORY_NAME: "اسم القسم",
+  NEW_CATEGORY: "قسم جديد",
+  EDIT_CATEGORY: "تعديل القسم",
+  CATEGORY_NAME_REQUIRED: "اسم القسم مطلوب",
+  CATEGORY_NAME_MIN_LENGTH: "اسم القسم يجب أن يكون أكثر من 4 أحرف",
+  CATEGORY_NAME_MAX_LENGTH: "اسم القسم يجب أن يكون أقل من 20 أحرف",
+  CATEGORY_NAME_UNIQUE: "اسم القسم يجب أن يكون فريدا",
+  ADD_CATEGORY: "إضافة قسم",
+  BACK_TO_PRODUCTS: "العودة إلى المنتجات",
+
   // profile
   manager: "مدير",
   editor: "محرر",
@@ -44,6 +56,9 @@ export const arabic = {
 
   DELETE_PRODUCT: "حذف المنتج",
   DELETE_PRODUCT_CONFIRM: "هل أنت متأكد من حذف هذا المنتج؟",
+
+  DELETE_CATEGORY: "حذف القسم",
+  DELETE_CATEGORY_CONFIRM: "هل أنت متأكد من حذف هذا القسم؟",
 
   // messages
   NO_PRODUCTS: "لا توجد منتجات، أضف منتجا جديدا.",

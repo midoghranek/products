@@ -9,11 +9,11 @@
   },
   "thumbnail": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
   "category": {
-    "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0f4",
-    "name": "Pants",
+    "_id": "1b355017-1745-4a83-a8f8-e9e3f24dd5af",
+    "name": "Camera",
     "translations": {
       "ar": {
-        "name": "السراويل"
+        "name": "كاميرا"
       }
     }
   }

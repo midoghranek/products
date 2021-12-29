@@ -7,6 +7,7 @@ const useLogout = () => {
   const dispatch = useAppDispatch();
   const logout = () => {
     removeCookies("session");
+    removeCookies("user_role");
     localStorage.removeItem("user");
     dispatch(logoutUser());
     router.push("/login");

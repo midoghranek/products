@@ -29,6 +29,18 @@ export const english = {
   THUMBNAIL_REQUIRED: "Thumnail is required",
   THUMBNAIL_URL: "Thunmbnail must be a valid url",
 
+  // categories
+  MANAGE_CATEGORIES: "Manage Categories",
+  CATEGORY_NAME: "Category Name",
+  NEW_CATEGORY: "New Category",
+  EDIT_CATEGORY: "Edit Category",
+  CATEGORY_NAME_REQUIRED: "Category name is required",
+  CATEGORY_NAME_MIN_LENGTH: "Category name must be at least 4 characters",
+  CATEGORY_NAME_MAX_LENGTH: "Category name must be at most 20 characters",
+  CATEGORY_NAME_UNIQUE: "Category name must be unique",
+  ADD_CATEGORY: "Add Category",
+  BACK_TO_PRODUCTS: "Back to Products",
+
   // profile
   manager: "Manager",
   editor: "Editor",
@@ -46,6 +58,9 @@ export const english = {
 
   DELETE_PRODUCT: "Delete Product",
   DELETE_PRODUCT_CONFIRM: "Are you sure you want to delete this product?",
+
+  DELETE_CATEGORY: "Delete Category",
+  DELETE_CATEGORY_CONFIRM: "Are you sure you want to delete this category?",
 
   // messages
   NO_PRODUCTS: "No products found, Add some new product.",

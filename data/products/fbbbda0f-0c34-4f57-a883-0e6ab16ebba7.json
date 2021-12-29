@@ -3,11 +3,11 @@
   "name": "Shoes 2",
   "weight": "3",
   "category": {
-    "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0f4",
-    "name": "Pants",
+    "_id": "c4df3a09-0696-469a-9b32-d6d97c071e0d",
+    "name": "Glasses",
     "translations": {
       "ar": {
-        "name": "السراويل"
+        "name": "نظارات"
       }
     }
   },

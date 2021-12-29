@@ -43,7 +43,7 @@ export default async function handler(
     }
 
     if (categories.find((category) => category.name === req.body.name)) {
-      return res.status(400).json({
+      return res.status(403).json({
         success: false,
         message: "Category name already exists",
       });
