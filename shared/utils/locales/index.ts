@@ -4,6 +4,7 @@ import { english } from "./english";
 export const locales: {
   readonly [lang: string]: { readonly [key: string]: string };
 } = {
+  default: english,
   en: english,
   ar: arabic,
 };
