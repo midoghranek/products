@@ -20,5 +20,9 @@ export const productFormSchema = yup.object().shape({
       name: yup.string().required("ARABIC_NAME_REQUIRED"),
     }),
   }),
-  thumbnail: yup.string().required("THUMBNAIL_REQUIRED"),
+  thumbnail: yup
+    .string()
+    .required("THUMBNAIL_REQUIRED")
+    .url("THUMBNAIL_URL")
+    .matches(/images.unsplash.com/g, "IMAGES_MESSAGE"),
 });

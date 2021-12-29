@@ -1,0 +1,20 @@
+{
+  "_id": "cf0fab83-5e18-4154-86f6-e9a9f79fcb23",
+  "name": "Amazing Headset 7.1",
+  "translations": {
+    "ar": {
+      "name": "سماعة محيطة 7.1"
+    }
+  },
+  "weight": "33",
+  "thumbnail": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+  "category": {
+    "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0d5",
+    "name": "Headsets",
+    "translations": {
+      "ar": {
+        "name": "سماعات"
+      }
+    }
+  }
+}

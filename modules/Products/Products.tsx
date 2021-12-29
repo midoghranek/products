@@ -15,15 +15,13 @@ import ProductForm from "./ProductForm/ProductForm";
 import { useTranslate } from "@hooks";
 import { Add } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { closeProductForm, openProductForm, productFormSelector } from "@store";
+import { closeProductForm, openProductForm } from "@store";
 
 const Products = () => {
   const dispatch = useDispatch();
   const { message } = useTranslate();
   const { data, isLoading, isError } = useGetProductsQuery();
   const router = useRouter();
-
-  const productFormState = useSelector(productFormSelector);
 
   const handleOpenProductForm = () => {
     dispatch(openProductForm());
@@ -34,11 +32,7 @@ const Products = () => {
   };
 
   if (isError)
-    return (
-      <Alert severity="error">
-        Something went wrong, please try again later
-      </Alert>
-    );
+    return <Alert severity="error">{message("SOMETHING_WENT_WRONG")}</Alert>;
 
   if (isLoading)
     return (
@@ -47,8 +41,11 @@ const Products = () => {
       </CenterBox>
     );
 
+  if (data?.length === 0)
+    return <Alert severity="error">{message("NO_PRODUCTS")}</Alert>;
+
   return (
-    <Box mt={5}>
+    <Box my={5}>
       <Box
         sx={{
           display: "flex",

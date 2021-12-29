@@ -25,8 +25,28 @@ export const arabic = {
   CATEGORY_REQUIRED: "الوسم مطلوب",
   ARABIC_NAME_REQUIRED: "اسم المنتج باللغة العربية مطلوب",
   THUMBNAIL_REQUIRED: "الصورة المصغرة مطلوبة",
+  THUMBNAIL_URL: "الصورة المصغرة يجب ان تكون رابط ويب صالح",
 
   // profile
   manager: "مدير",
   editor: "محرر",
+
+  // controls
+  SAVE: "حفظ",
+  CANCEL: "إلغاء",
+  DELETE: "حذف",
+  EDIT: "تعديل",
+  ADD: "إضافة",
+  CLOSE: "إغلاق",
+  CONFIRM: "تأكيد",
+  YES: "نعم",
+  NO: "لا",
+
+  DELETE_PRODUCT: "حذف المنتج",
+  DELETE_PRODUCT_CONFIRM: "هل أنت متأكد من حذف هذا المنتج؟",
+
+  // messages
+  NO_PRODUCTS: "لا توجد منتجات، أضف منتجا جديدا.",
+  SOMETHING_WENT_WRONG: "حدث خطأ، يرجى المحاولة مرة أخرى في وقت لاحق",
+  IMAGES_MESSAGE: "حاليا ندعم صور علي images.unsplash.com فقط",
 };

@@ -9,6 +9,7 @@ import { IntlProvider } from "react-intl";
 import { locales } from "@locales";
 import { RTKProvider } from "@store";
 import { MainLayout } from "shared/layouts";
+import { ConfirmDialog } from "@components";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   if (router.locale !== DEFAULT_LANG) setCookies(COOKIE_LANG, router.locale);
@@ -29,6 +30,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               <Component {...pageProps} />
             </Container>
           </MainLayout>
+          {/* global dialogs */}
+          <ConfirmDialog />
         </MuiProvider>
       </IntlProvider>
     </RTKProvider>

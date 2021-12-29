@@ -1,11 +1,11 @@
+import { useConfirmDialog } from "@components";
 import { useTranslate } from "@hooks";
 import { Delete, Edit } from "@mui/icons-material";
-import { Typography, Box, IconButton } from "@mui/material";
+import { Typography, Box, IconButton, Chip } from "@mui/material";
 import { useDeleteProductMutation, useGetProductsQuery } from "@services";
 import { openEditProduct } from "@store";
 import { Languages, Product } from "@types";
 import Image from "next/image";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 type SingleProductProps = {
@@ -21,6 +21,16 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product, lang }) => {
 
   const handleEditProduct = () => {
     dispatch(openEditProduct(product));
+  };
+
+  const { setDialog, closeDialog } = useConfirmDialog();
+
+  const handleDeleteProduct = () => {
+    setDialog({
+      title: message("DELETE_PRODUCT"),
+      message: message("DELETE_PRODUCT_CONFIRM"),
+      onConfirm: () => deleteProduct(product?._id).then(() => closeDialog()),
+    });
   };
 
   return (
@@ -60,6 +70,14 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product, lang }) => {
           <Typography variant="subtitle2">
             {message("PRODUCT_WEIGHT")}: {product.weight}
           </Typography>
+          <Box mt="10px" />
+          <Chip
+            label={
+              lang === "ar"
+                ? product.category.translations.ar.name
+                : product.category.name
+            }
+          />
         </Box>
       </Box>
 
@@ -72,7 +90,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product, lang }) => {
         <IconButton onClick={handleEditProduct}>
           <Edit />
         </IconButton>
-        <IconButton onClick={() => deleteProduct(product?._id)}>
+        <IconButton onClick={handleDeleteProduct}>
           <Delete />
         </IconButton>
       </Box>

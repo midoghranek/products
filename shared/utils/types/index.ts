@@ -11,9 +11,20 @@ export type ProductIntialState = {
   };
 };
 
+export type ConfirmDialogIntialProps = {
+  title: string;
+  message: string;
+  onConfirm: () => void;
+};
+
+export type ConfirmDialogIntialState = ConfirmDialogIntialProps & {
+  open: boolean;
+};
+
 export type GlobalStore = {
   "user/store": UserIntialState;
   "product/store": ProductIntialState;
+  "@ui/confirmDialog": ConfirmDialogIntialState;
 };
 
 export type Product = {

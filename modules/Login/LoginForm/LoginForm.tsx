@@ -1,8 +1,10 @@
-import { useTranslate } from "@hooks";
+import { useToggleValue, useTranslate } from "@hooks";
 import {
   Box,
   Button,
   CircularProgress,
+  IconButton,
+  InputAdornment,
   Paper,
   TextField,
   Typography,
@@ -17,6 +19,7 @@ import { useEffect } from "react";
 import { setCookies } from "cookies-next";
 import { useRouter } from "next/router";
 import { setUser, useAppDispatch } from "@store";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 type LoginError = {
   data: {
@@ -34,6 +37,7 @@ const LoginForm = () => {
   } = useForm({
     resolver: yupResolver(loginFormSchema),
   });
+  const [showPassword, toggleShowPassword] = useToggleValue();
 
   const [loginUser, { data, isLoading, isError, error, isSuccess }] =
     useLoginMutation();
@@ -102,12 +106,25 @@ const LoginForm = () => {
             render={({ field }) => (
               <TextField
                 {...field}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 variant="outlined"
                 label={message("PASSWORD")}
                 error={!!errors?.password}
                 helperText={message(errors?.password?.message) ?? ""}
                 fullWidth
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={toggleShowPassword}
+                        onMouseDown={toggleShowPassword}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
             )}
           />

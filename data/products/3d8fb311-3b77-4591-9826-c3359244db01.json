@@ -1,7 +1,7 @@
 {
   "_id": "3d8fb311-3b77-4591-9826-c3359244db01",
   "name": "wireless headphones photo",
-  "weight": 1,
+  "weight": "90",
   "category": {
     "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0d5",
     "name": "Headsets",

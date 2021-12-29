@@ -27,8 +27,28 @@ export const english = {
   CATEGORY_REQUIRED: "Category is required",
   ARABIC_NAME_REQUIRED: "Arabic name is required",
   THUMBNAIL_REQUIRED: "Thumnail is required",
+  THUMBNAIL_URL: "Thunmbnail must be a valid url",
 
   // profile
   manager: "Manager",
   editor: "Editor",
+
+  // controls
+  SAVE: "Save",
+  CANCEL: "Cancel",
+  DELETE: "Delete",
+  EDIT: "Edit",
+  ADD: "Add",
+  CLOSE: "Close",
+  CONFIRM: "Confirm",
+  YES: "Yes",
+  NO: "No",
+
+  DELETE_PRODUCT: "Delete Product",
+  DELETE_PRODUCT_CONFIRM: "Are you sure you want to delete this product?",
+
+  // messages
+  NO_PRODUCTS: "No products found, Add some new product.",
+  SOMETHING_WENT_WRONG: "Something went wrong, please try again later",
+  IMAGES_MESSAGE: "Currently we support only images from images.unsplash.com",
 };

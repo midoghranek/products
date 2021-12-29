@@ -192,7 +192,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
                 label={message("THUMBNAIL")}
                 error={!!errors?.thumbnail}
                 helperText={
-                  message(errors?.thumbnail?.message as LOCALES) ?? ""
+                  !!errors?.thumbnail
+                    ? message(errors?.thumbnail?.message as LOCALES) ?? ""
+                    : message("IMAGES_MESSAGE")
                 }
                 fullWidth
               />
@@ -200,6 +202,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
           />
           <Box mb={3} />
           <Box display="flex" justifyContent="flex-end">
+            <Button variant="outlined" onClick={onClose}>
+              {message("CANCEL")}
+            </Button>
+            <Box ml="10px" />
             <Button variant="contained" type="submit">
               {message(edit ? "EDIT_PRODUCT" : "ADD_PRODUCT")}
             </Button>

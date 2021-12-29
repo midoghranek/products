@@ -1,13 +1,13 @@
 {
   "_id": "fbbbda0f-0c34-4f57-a883-0e6ab16ebba7",
   "name": "Shoes 2",
-  "weight": 3,
+  "weight": "3",
   "category": {
-    "_id": "0cfb5624-2b7f-4349-8a8d-87b0f9869825",
-    "name": "Shooes",
+    "_id": "b0e7a263-d192-44c3-86d6-2aca86e0b0f4",
+    "name": "Pants",
     "translations": {
       "ar": {
-        "name": "الأحذية"
+        "name": "السراويل"
       }
     }
   },
