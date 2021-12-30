@@ -14,7 +14,7 @@ export type ProductIntialState = {
 export type ConfirmDialogIntialProps = {
   title: string;
   message: string;
-  onConfirm: () => void;
+  onConfirm: null | (() => void);
 };
 
 export type ConfirmDialogIntialState = ConfirmDialogIntialProps & {

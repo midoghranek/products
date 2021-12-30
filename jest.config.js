@@ -28,6 +28,7 @@ const customJestConfig = {
     "@locales": "<rootDir>/shared/utils/locales/index.ts",
     "@theme": "<rootDir>/shared/utils/theme/index.ts",
     "@types": "<rootDir>/shared/utils/types/index.ts",
+    "@utils/test": "<rootDir>/shared/utils/test/index.tsx",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
 };

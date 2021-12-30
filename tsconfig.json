@@ -16,7 +16,8 @@
       "@constants": ["shared/utils/constants/index.ts"],
       "@locales": ["shared/utils/locales/index.ts"],
       "@theme": ["shared/utils/theme/index.ts"],
-      "@types": ["shared/utils/types/index.ts"]
+      "@types": ["shared/utils/types/index.ts"],
+      "@utils/test": ["shared/utils/test/index.tsx"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

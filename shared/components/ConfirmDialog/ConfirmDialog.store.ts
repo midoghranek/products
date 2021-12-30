@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ConfirmDialogIntialProps, GlobalStore } from "@types";
+import {
+  ConfirmDialogIntialProps,
+  ConfirmDialogIntialState,
+  GlobalStore,
+} from "@types";
 
 export const confirmDialogSlice = createSlice({
   name: "@ui/confirmDialog",
@@ -7,8 +11,8 @@ export const confirmDialogSlice = createSlice({
     open: false,
     title: "",
     message: "",
-    onConfirm: () => {},
-  },
+    onConfirm: null,
+  } as ConfirmDialogIntialState,
   reducers: {
     openConfirmDialog: (
       state,

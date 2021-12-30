@@ -44,7 +44,11 @@ const ConfirmDialog = () => {
         <Button variant="outlined" onClick={closeDialog}>
           {message("CANCEL")}
         </Button>
-        <Button color="error" variant="contained" onClick={onConfirm}>
+        <Button
+          color="error"
+          variant="contained"
+          onClick={onConfirm as VoidFunction}
+        >
           {message("CONFIRM")}
         </Button>
       </DialogActions>
