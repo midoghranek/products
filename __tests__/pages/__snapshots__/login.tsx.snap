@@ -16,7 +16,9 @@ exports[`renders homepage unchanged 1`] = `
       <div
         class="MuiBox-root css-y1gt6f"
       />
-      <form>
+      <form
+        data-testid="login-form"
+      >
         <div
           class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
         >
@@ -124,6 +126,7 @@ exports[`renders homepage unchanged 1`] = `
         />
         <button
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-1q2y1px-MuiButtonBase-root-MuiButton-root"
+          data-testid="login-button"
           tabindex="0"
           type="submit"
         >
