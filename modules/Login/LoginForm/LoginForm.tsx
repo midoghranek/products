@@ -65,7 +65,7 @@ const LoginForm = () => {
           <CircularProgress />
         </CenterBox>
       )}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} data-testid="login-form">
         <Controller
           name="username"
           control={control}
@@ -119,7 +119,7 @@ const LoginForm = () => {
             <Box mt={3} />
           </>
         )}
-        <Button variant="contained" type="submit">
+        <Button data-testid="login-button" variant="contained" type="submit">
           {message("LOGIN_TITLE")}
         </Button>
       </form>
