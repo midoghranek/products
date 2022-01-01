@@ -31,6 +31,7 @@ const customJestConfig = {
     "@utils/test": "<rootDir>/shared/utils/test/index.tsx",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  testPathIgnorePatterns: ["e2e", "node_modules"],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
